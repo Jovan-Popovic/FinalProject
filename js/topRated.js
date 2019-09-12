@@ -3,9 +3,10 @@ function getTopRatedData() {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s")
       .then(res => res.json())
       .then(data => {
-        let output = '';
+        let output = ``;
         let i = 0;
         let n = 3;
+        let a = 0;
         //Taking data from API
         function loadDrinks(){
           for(i;i<n;i++){
@@ -21,10 +22,14 @@ function getTopRatedData() {
             `
           }
           n += 3;
+          a += 1;
+          let drinkDeck = ``;
+          drinkDeck +=`<div id="deck${a}" class="card-deck">`+ output + `</div>`
+          document.getElementById("topRated").innerHTML = drinkDeck;
+          output = ``;
         }
         loadDrinks();
-        //Adding drinks in HTML file
-        document.getElementById("topRated").innerHTML = output;
+        loadDrinks();
 });
 }
 getTopRatedData();

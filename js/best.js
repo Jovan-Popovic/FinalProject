@@ -10,7 +10,7 @@ function getBest() {
             <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-6">
-                <img src=${data.drinks[i].strDrinkThumb} class="card-img" alt="...">
+                <img src="${data.drinks[i].strDrinkThumb}" class="card-img" alt="...">
               </div>
               <div class="col-md-6">
                 <div class="card-body">
