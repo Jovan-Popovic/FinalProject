@@ -6,10 +6,37 @@
 
 body{
     background-color: #1f1f1f;
+    overflow-x: hidden;
 }
-.navbar{
+nav{
     background-color: #0f0f0f;
 }
-.container-fluid{
+
+.slider-best{
+    display: flex;
+    justify-content: space-around;
+}
+#slider{
     margin-top: 10vh;
+    width: 70%;
+}
+
+#footer{
+    display: flex;
+    justify-content: space-around;
+}
+.card-column{
+    max-width: 20%;
+    margin-top: 10vh;
+}
+@media screen and (max-width: 991px){
+    .card-column{
+        display: none;
+    }
+    #slider{
+        width: 100%;
+    }
+}
+.slider-best{
+    display: flex;
 }
