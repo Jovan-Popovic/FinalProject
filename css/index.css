@@ -21,7 +21,7 @@ nav{
     width: 70%;
 }
 
-#footer{
+#footer,.button{
     display: flex;
     justify-content: space-around;
 }
