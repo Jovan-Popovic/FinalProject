@@ -36,6 +36,9 @@ nav{
     #slider{
         width: 100%;
     }
+    #item1,#item2,#item4,#item5,#item7,#item8{
+        display: none;
+    }  
 }
 .slider-best{
     display: flex;
