@@ -1,27 +1,29 @@
 
+let bestData = [];
+let bestOutput = '';
+let bestCounter = 0;
 function getBest() {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail")
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink")
       .then(res => res.json())
       .then(data => {
-        let output = '';
-        let i = 0;
-          for(i;i<3;i++){
-            output += `
+        bestData = data;
+          for(bestCounter;bestCounter<3;bestCounter++){
+            bestOutput += `
             <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-6">
-                <img src="${data.drinks[i].strDrinkThumb}" class="card-img" alt="...">
+                <img src="${bestData.drinks[bestCounter].strDrinkThumb}" class="card-img" alt="...">
               </div>
               <div class="col-md-6">
                 <div class="card-body">
-                  <h5 class="card-title">${data.drinks[i].strDrink}</h5>
+                  <h5 class="card-title">${bestData.drinks[bestCounter].strDrink}</h5>
                 </div>
               </div>
             </div>
           </div>
             `
           }
-        document.getElementById("best").innerHTML = output;  
+        document.getElementById("best").innerHTML = bestOutput;  
         });
     }
 getBest();
