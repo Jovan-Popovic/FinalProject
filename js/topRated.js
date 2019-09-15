@@ -26,12 +26,12 @@ function loadDrinks(){
             <div id="card-body${loadMoreCounter}" class="card-body">
               <h5 class="card-title">${topRatedData.drinks[loadMoreCounter].strDrink}</h5>
               <p class="card-text">${topRatedData.drinks[loadMoreCounter].strInstructions}</p>
-              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalScrollable${loadMoreCounter}">Read More</button>
-        <div class="modal fade" id="exampleModalScrollable${loadMoreCounter}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle${loadMoreCounter}" aria-hidden="true">
+              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#topRatedModal${loadMoreCounter}">Read More</button>
+        <div class="modal fade" id="topRatedModal${loadMoreCounter}" tabindex="-1" role="dialog" aria-labelledby="topRatedModalScrollableTitle${loadMoreCounter}" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle${loadMoreCounter}">${topRatedData.drinks[loadMoreCounter].strDrink}</h5>
+                <h5 class="modal-title" id="topRatedModalScrollableTitle${loadMoreCounter}">${topRatedData.drinks[loadMoreCounter].strDrink}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
