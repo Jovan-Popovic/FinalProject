@@ -1,13 +1,13 @@
 
 let bestData = [];
 let bestOutput = '';
-let bestCounter = 0;
+let bestCounter = 1;
 function getBest() {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink")
       .then(res => res.json())
       .then(data => {
         bestData = data;
-          for(bestCounter;bestCounter<3;bestCounter++){
+          for(bestCounter;bestCounter<4;bestCounter++){
             bestOutput += `
             <div class="card mb-3">
             <div class="row no-gutters">

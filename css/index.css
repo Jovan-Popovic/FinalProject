@@ -12,6 +12,13 @@ nav{
     background-color: #0f0f0f;
 }
 
+.dropdown-menu{
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
 #slider-best{
     display: flex;
     justify-content: space-around;
@@ -25,10 +32,12 @@ nav{
     display: flex;
     justify-content: space-around;
 }
+
 .card-column{
     max-width: 20%;
     margin-top: 10vh;
 }
+
 @media screen and (max-width: 991px){
     .card-column{
         display: none;
@@ -40,6 +49,19 @@ nav{
         display: none;
     }  
 }
+
 .slider-best{
     display: flex;
+}
+
+.form-inline{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+@media screen and (max-width: 210px){
+    .form-inline{
+        margin-top: 15vh;
+    }
 }

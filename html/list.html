@@ -21,14 +21,11 @@
         <li class="nav-item">
           <a class="nav-link" href="../index.html">Home</a>
         </li>
-        <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown04">
-            <a class="dropdown-item" href="#">Galery</a>
-            <a class="dropdown-item" href="#">Contact us</a>
-            <a class="dropdown-item" href="#">Something</a>
-          </div>
-        </li>
+          <select id="dropdown" class="nav-item">
+            <option value="Ordinary_Drink">Ordinary drink</option>
+            <option value="Cocktail">Cocktail</option>
+            <option value="Shot">Shot</option>
+          </select>
         <li class="nav-item">
           <a class="nav-link" href="custom.html">Custom</a>
         </li>
@@ -38,7 +35,11 @@
       </ul>
     </div>
   </nav>
-  <div class="main"></div>
+  <form class="form-inline">
+      <input class="form-control col-10" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  <div id="main"></div>  
   <nav class="navbar navbar-expand-sm fixed-bottom navbar-dark">
     <ul id="footer" class="navbar-nav">
       <li class="nav-item">
@@ -47,9 +48,9 @@
       <li class="nav-item active dropup">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">List</a>
         <div class="dropdown-menu" aria-labelledby="dropdown10">
-          <a class="dropdown-item" href="#">Galery</a>
-          <a class="dropdown-item" href="#">Contact us</a>
-          <a class="dropdown-item" href="#">Something</a>
+          <a class="dropdown-item" href="#">Ordinary Drink</a>
+          <a class="dropdown-item" href="#">Cocktail</a>
+          <a class="dropdown-item" href="#">Shot</a>
         </div>
       </li>
       <li class="nav-item">
