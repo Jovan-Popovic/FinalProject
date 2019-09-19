@@ -60,8 +60,12 @@ nav{
     margin-top: 10vh;
 }
 
+#pills-tab{
+    margin-top: 10vh;
+}
+
 @media screen and (max-width: 210px){
-    .form-inline{
+    #pills-tab{
         margin-top: 15vh;
     }
 }
