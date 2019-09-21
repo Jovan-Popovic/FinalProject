@@ -60,12 +60,12 @@ nav{
     margin-top: 10vh;
 }
 
-#pills-tab{
+#filters{
     margin-top: 10vh;
 }
 
 @media screen and (max-width: 210px){
-    #pills-tab{
+    #filters{
         margin-top: 15vh;
     }
 }
