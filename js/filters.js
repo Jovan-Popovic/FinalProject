@@ -5,7 +5,6 @@ let counter = 0;
 let maxCount = 100;
 let mainOutput = ``;
 let ingredientsData = [];
-let selectedOrEnteredValue = ``;
 
 function addCategories(){
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list`)
@@ -44,8 +43,8 @@ function addIngredients(){
 }
 addIngredients();
 
-function fetchData(srcOrFil,tabName,inputValue){
-  selectedOrEnteredValue = document.getElementById(/*id*/).value
+function fetchData(srcOrFil,tabName,filterId){
+  let inputValue = document.getElementById(filterId).value
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/${srcOrFil}.php?${tabName}=${inputValue}`)
   .then(res => res.json())
   .then(data => {
@@ -63,11 +62,11 @@ function fetchData(srcOrFil,tabName,inputValue){
     counter = 0;
     filtersData = [];
     filtersOutput = ``;
-    selectedOrEnteredValue = ``;
+    inputValue = ``;
   })
 }
 
 document.getElementById("name-search-button").addEventListener("click",fetchData("search","s","search-box"));
-document.getElementById("category-search-button").addEventListener("click",fetchData("filter","c","dropdown"));
-document.getElementById("ingredient-search-button").addEventListener("click",fetchData("filter","i","form-check"));
+document.getElementById("category-search-button").addEventListener("click",fetchData("filter","c","dropdown"/*bad id*/));
+document.getElementById("ingredient-search-button").addEventListener("click",fetchData("filter","i","form-check"/*bad id*/));
 
