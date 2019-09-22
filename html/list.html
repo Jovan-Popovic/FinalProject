@@ -48,11 +48,17 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="name-search" role="tabpanel" aria-labelledby="name-search-tab">
         <input id="search-box" class="form-control col-10" name="name-search" type="search" placeholder="Search" aria-label="Search">
+        <button id="name-search-button" class="btn btn-outline-success" type="button">Search</button>
       </div>
-      <div class="tab-pane fade" id="category-search" role="tabpanel" aria-labelledby="category-search-tab"></div>
-      <div class="tab-pane fade" id="ingredients-search" role="tabpanel" aria-labelledby="ingredients-search-tab"></div>
+      <div class="tab-pane fade" id="category-search" role="tabpanel" aria-labelledby="category-search-tab">
+        <select name="category" id="dropdown" class="form-control col-10"></select>
+        <button id="category-search-button" class="btn btn-outline-success" type="button">Search</button>
+      </div>
+      <div class="tab-pane fade" id="ingredients-search" role="tabpanel" aria-labelledby="ingredients-search-tab">
+        <div id="form-check"></div>
+        <button id="ingredient-search-button" class="btn btn-outline-success" type="button">Search</button>
+      </div>
     </div>
-    <button id="filter-search-button" class="btn btn-outline-success" type="button">Search</button>
   </form>
   <div id="filter-results"></div>
   <nav class="navbar navbar-expand-sm fixed-bottom navbar-dark">
