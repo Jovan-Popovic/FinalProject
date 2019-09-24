@@ -38,9 +38,12 @@ function loadDrinks(){
               </div>
               <div class="modal-body">
               <img class="card-img-top" src="${topRatedData.drinks[loadMoreCounter].strDrinkThumb}">
-              <p class="modal-text">Category:${topRatedData.drinks[loadMoreCounter].strCategory}</p>
-              <p class="modal-text">Glass:${topRatedData.drinks[loadMoreCounter].strGlass}</p>
-              <p class="modal-text">Instructions:${topRatedData.drinks[loadMoreCounter].strInstructions}</p>
+              <p class="modal-text">Category: ${topRatedData.drinks[loadMoreCounter].strCategory}</p>
+              <p class="modal-text">Glass: ${topRatedData.drinks[loadMoreCounter].strGlass}</p>
+              <p class="modal-text">Instructions: ${topRatedData.drinks[loadMoreCounter].strInstructions}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>

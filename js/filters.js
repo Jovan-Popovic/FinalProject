@@ -44,7 +44,7 @@ function addIngredients(){
 addIngredients();
 
 function fetchData(srcOrFil,tabName,filterId){
-  let inputValue = document.getElementById(filterId).value
+  inputValue = document.getElementById(filterId).value
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/${srcOrFil}.php?${tabName}=${inputValue}`)
   .then(res => res.json())
   .then(data => {

@@ -19,16 +19,18 @@ nav{
 .dropdown:hover .dropdown-menu{
     display: block;
 }
+
 #slider-best{
     display: flex;
     justify-content: space-around;
 }
+
 #slider{
     margin-top: 10vh;
     width: 70%;
 }
 
-#footer,.button{
+#footer{
     display: flex;
     justify-content: space-around;
 }
@@ -68,4 +70,9 @@ nav{
     #filters{
         margin-top: 15vh;
     }
+}
+
+#gallery{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
