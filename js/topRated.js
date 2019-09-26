@@ -21,7 +21,7 @@ getTopRatedData();
 function loadDrinks(){
           for(loadMoreCounter;loadMoreCounter<cardCounter;loadMoreCounter++){
             topRatedOutput += `
-            <div class="card">
+            <div class="card col-12 col-sm-6 col-md-6 col-lg-4">
             <img src="${topRatedData.drinks[loadMoreCounter].strDrinkThumb}" class="card-img-top" alt="...">
             <div id="card-body${loadMoreCounter}" class="card-body">
               <h5 class="card-title">${topRatedData.drinks[loadMoreCounter].strDrink}</h5>
