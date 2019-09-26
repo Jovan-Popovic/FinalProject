@@ -52,7 +52,7 @@ function fetchData(srcOrFil,tabName,filterId){
     filtersData = data;
     for(counter;counter<filtersData.drinks.length;counter++){
       filtersOutput += `
-      <div class="card">
+      <div class="card col-12 col-sm-6 col-md-6 col-lg-4">
         <img src="${filtersData.drinks[counter].strDrinkThumb}" class="card-img-top" alt="...">
         <div id="card-body${counter}" class="card-body">
         <h5 class="card-title">${filtersData.drinks[counter].strDrink}</h5>
