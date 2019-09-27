@@ -58,13 +58,13 @@ function fetchData(srcOrFil,tabName,filterId){
         <img src="${filtersData.drinks[counter].strDrinkThumb}" class="card-img-top" alt="...">
         <div id="card-body${counter}" class="card-body">
         <h5 class="card-title">${filtersData.drinks[counter].strDrink}</h5>
-        <button id="modal-button${filtersData.drinks[counter].idDrink}" type="button" class="btn btn-warning" data-toggle="modal" data-target="#listModal${counter}">Read More</button>
-        <div class="modal fade" id="listModal${counter}" tabindex="-1" role="dialog" aria-labelledby="listModalScrollableTitle${counter}" aria-hidden="true"></div>
+        <button id="modal-button${filtersData.drinks[counter].idDrink}" type="button" class="btn btn-warning" data-toggle="modal" data-target="#listModal${filtersData.drinks[counter].idDrink}">Read More</button>
+        <div class="modal fade" id="listModal${filtersData.drinks[counter].idDrink}" tabindex="-1" role="dialog" aria-labelledby="listModalScrollableTitle${counter}" aria-hidden="true"></div>
         </div>
       </div>`;
       document.getElementById("filter-results").innerHTML += filtersOutput;
       filtersOutput = ``;
-      document.getElementById(`modal-button${filtersData.drinks[counter].idDrink}`).addEventListener("click",listModal(`${filtersData.drinks[counter].idDrink}`))
+      document.getElementById(`modal-button${filtersData.drinks[counter].idDrink}`).addEventListener("click",listModal(`${filtersData.drinks[counter].idDrink}`));
     }
     counter = 0;
     filtersData = [];
@@ -81,7 +81,7 @@ function listModal(modalId){
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="listModalScrollableTitle${counter}">${modalData.drinks[counter].strDrink}</h5>
+          <h5 class="modal-title" id="listModalScrollableTitle${modalData.drinks[counter].idDrink}">${modalData.drinks[counter].strDrink}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -111,7 +111,7 @@ function listModal(modalId){
       </div>
     </div>
   </div>`;
-  document.getElementById(`listModal${counter}`).innerHTML += modalOutput;
+  document.getElementById(`listModal${modalData.drinks[counter].idDrink}`).innerHTML += modalOutput;
   ingredientsCounter = 1;
   modalOutput = ``;
   modalIngredients = ``;
