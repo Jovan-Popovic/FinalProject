@@ -68,7 +68,7 @@ nav{
     margin-top: 10vh;
 }
 
-#filters{
+#filters,#about-us{
     margin-top: 10vh;
 }
 
@@ -85,4 +85,8 @@ nav{
 #gallery{
     margin-top: 10vh;
     margin-bottom: 10vh;
+}
+
+.navbar-brand,.content{
+    font-weight: bold;
 }

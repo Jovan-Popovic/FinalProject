@@ -23,7 +23,7 @@ getTopRatedData();
 function loadDrinks(){
     for(loadMoreCounter;loadMoreCounter<cardCounter;loadMoreCounter++){
       topRatedOutput += `
-      <div class="card col-12 col-sm-6 col-md-6 col-lg-4">
+      <div id="card${loadMoreCounter}" class="card">
         <img src="${topRatedData.drinks[loadMoreCounter].strDrinkThumb}" class="card-img-top" alt="...">
         <div id="card-body${loadMoreCounter}" class="card-body">
           <h5 class="card-title">${topRatedData.drinks[loadMoreCounter].strDrink}</h5>
@@ -44,17 +44,18 @@ function loadDrinks(){
                   <p class="modal-text">${topRatedData.drinks[loadMoreCounter].strCategory}</p>
                   <h4 class="modal-title">Glass</h5>
                   <p class="modal-text">${topRatedData.drinks[loadMoreCounter].strGlass}</p>
-                  <h4 class="modal-title">Instructions</h4>
-                  <p class="modal-text">${topRatedData.drinks[loadMoreCounter].strInstructions}</p>
                   <h4 class="modal-title">Ingredients</h4>`;
-        //This loop should load all ingredients and measures
         for(topRatedCounter;topRatedCounter<16;topRatedCounter++){
-          topRatedIngredients += `<p class="modal-text">${topRatedData.drinks[loadMoreCounter].strIngredient + topRatedCounter} : ${topRatedData.drinks[loadMoreCounter].strMeasure + topRatedCounter}</p>`;
-          if(topRatedData.drinks[loadMoreCounter].strIngredient1 === '' && topRatedData.drinks[loadMoreCounter].strMeasure1 === ''){
-            //If there's no ingredient,don't show it on page 
-          }
+          if(topRatedData.drinks[loadMoreCounter]["strIngredient" + topRatedCounter] !== "" 
+          && topRatedData.drinks[loadMoreCounter]["strIngredient" + topRatedCounter] !== null
+          && topRatedData.drinks[loadMoreCounter]["strMeasure" + topRatedCounter] !== "" 
+          && topRatedData.drinks[loadMoreCounter]["strMeasure" + topRatedCounter] !== null){
+             topRatedIngredients += `<p class="modal-text">${topRatedCounter}. ${topRatedData.drinks[loadMoreCounter]["strIngredient" + topRatedCounter]} ${topRatedData.drinks[loadMoreCounter]["strMeasure" + topRatedCounter]}</p>`;
+             }
         }
         topRatedOutput += topRatedIngredients + `
+                  <h4 class="modal-title">Instructions</h4>
+                  <p class="modal-text">${topRatedData.drinks[loadMoreCounter].strInstructions}</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

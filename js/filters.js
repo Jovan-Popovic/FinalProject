@@ -6,6 +6,8 @@ let maxCount = 100;
 let mainOutput = ``;
 let modalData = []
 let modalOutput = ``;
+let ingredientsCounter = 1;
+let modalIngredients = ``;
 
 function addCategories(){
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list`)
@@ -71,35 +73,50 @@ function fetchData(srcOrFil,tabName,filterId){
 }
 
 function listModal(modalId){
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${modalId}`)
-        .then(res => res.json())
-        .then(data => {
-          modalData = data;
-          modalOutput += ` 
-          <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="listModalScrollableTitle${counter}">${modalData.drinks[counter].strDrink}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${modalId}`)
+  .then(res => res.json())
+  .then(data => {
+    modalData = data;
+    modalOutput += ` 
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="listModalScrollableTitle${counter}">${modalData.drinks[counter].strDrink}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-            </div>
-            <div class="modal-body">
-            <img class="card-img-top" src="${modalData.drinks[counter].strDrinkThumb}">
-            <p class="modal-text">Category: ${modalData.drinks[counter].strCategory}</p>
-            <p class="modal-text">Glass: ${modalData.drinks[counter].strGlass}</p>
-            <p class="modal-text">Instructions: ${modalData.drinks[counter].strInstructions}</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>`;
-      document.getElementById(`listModal${counter}`).innerHTML += modalOutput;
-      modalOutput = ``;
-      })
-    }
+      <div class="modal-body">
+        <img class="card-img-top" src="${modalData.drinks[counter].strDrinkThumb}">
+        <h4 class="modal-title">Category</h4>
+        <p class="modal-text">${modalData.drinks[counter].strCategory}</p>
+        <h4 class="modal-title">Glass</h4>
+        <p class="modal-text">${modalData.drinks[counter].strGlass}</p>
+        <h4 class="modal-title">Ingredients</h4>`
+        for(ingredientsCounter;ingredientsCounter<16;ingredientsCounter++){
+          if(modalData.drinks[counter]["strIngredient" + ingredientsCounter] !== "" 
+          && modalData.drinks[counter]["strIngredient" + ingredientsCounter] !== null
+          && modalData.drinks[counter]["strMeasure" + ingredientsCounter] !== "" 
+          && modalData.drinks[counter]["strMeasure" + ingredientsCounter] !== null){
+           modalIngredients += `<p class="modal-text">${ingredientsCounter}. ${modalData.drinks[counter]["strIngredient" + ingredientsCounter]} ${modalData.drinks[counter]["strMeasure" + ingredientsCounter]}</p>`;
+             }
+        }
+        modalOutput += modalIngredients + `
+          <h4 class="modal-title">Instructions</h4>
+          <p class="modal-text">${modalData.drinks[counter].strInstructions}</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById(`listModal${counter}`).innerHTML += modalOutput;
+  ingredientsCounter = 1;
+  modalOutput = ``;
+  modalIngredients = ``;
+  })
+}
 document.getElementById("name-search-button").addEventListener("click",function(){fetchData("search","s","search-box")});
 document.getElementById("category-search-button").addEventListener("click",function(){fetchData("filter","c","dropdown")});
 document.getElementById("ingredient-search-button").addEventListener("click",function(){fetchData("filter","i","form-check"/*need to pick checked checkbox*/)});
