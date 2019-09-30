@@ -8,15 +8,15 @@
     <link rel="shortcut icon" href="images/logo.png">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Cocktail Web Page</title>
+    <title>Home Bartender</title>
 </head>
 <body>
-  <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top">
-    <a class="navbar-brand" href="index.html">COCKTAILS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+  <nav id="navbar" class="navbar navbar-expand-sm navbar-dark fixed-top">
+    <a class="navbar-brand" href="index.html">Home Bartender</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarsExample04">
+    <div class="collapse navbar-collapse" id="navbarsExample03">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home</a>
@@ -42,14 +42,14 @@
             <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
           </ol>
           <div class="carousel-inner">
-          <div class="carousel-item active" >
-              <div id="slide1" class="row" data-interval="3000"></div>
+          <div class="carousel-item active" data-interval="3000">
+              <div id="slide1" class="row"></div>
           </div>
-           <div class="carousel-item" >
-            <div id="slide2" class="row" data-interval="3000"></div>
+           <div class="carousel-item" data-interval="3000">
+            <div id="slide2" class="row"></div>
           </div>
-          <div class="carousel-item" >
-            <div id="slide3" class="row" data-interval="3000"></div>
+          <div class="carousel-item" data-interval="3000">
+            <div id="slide3" class="row"></div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -60,12 +60,12 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-        </div>
+      </div>
     </div>
     <div id="best" class="card-column">
     </div>
   </div>
-    <div id="topRated"></div>
+    <div id="topRated" class="row no-gutters"></div>
     <div class="button">
       <button id="loadBtn" type="button" class="btn btn-primary">Load More</button>
     </div>
@@ -75,7 +75,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.html" target="blank">Home</a>
           </li>
-          <li>
+          <li class="nav-item">
             <a class="nav-link" href="html/list.html" target="blank">List</a>
           </li>
           <li class="nav-item">

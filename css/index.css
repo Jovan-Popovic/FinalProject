@@ -5,21 +5,15 @@
 }
 
 body{
-    background-color: #1f1f1f;
     overflow-x: hidden;
 }
 nav{
     background-color: #0f0f0f;
 }
 
-.dropdown-menu{
-    display: none;
+.best-titles,span{
+    font-weight: bold;
 }
-
-.dropdown:hover .dropdown-menu{
-    display: block;
-}
-
 #slider-best{
     display: flex;
     justify-content: space-around;
@@ -45,6 +39,9 @@ nav{
     #item1,#item4,#item7{
         display: none;
     }
+    #about-us,#gallery{
+        margin-bottom: 30vh;
+    }
 }
 
 @media screen and (max-width: 991px){
@@ -63,7 +60,7 @@ nav{
     display: flex;
 }
 
-.main{
+.main,#gallery{
     display: flex;
     justify-content: center;
     margin-top: 10vh;
@@ -79,15 +76,14 @@ nav{
     }
 }
 
-#tab-filters{
+#tab-filters,#about-us,#filter-results,#gallery{
     margin-bottom: 10vh;
 }
 
-#gallery{
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+.random-drink{
+    margin-bottom: 4vh;
 }
 
-.navbar-brand,.content{
+.navbar-brand,.text-center,.page-description,.title,.content{
     font-weight: bold;
 }

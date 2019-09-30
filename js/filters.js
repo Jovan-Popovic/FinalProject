@@ -2,7 +2,6 @@
 let filtersData = [];
 let filtersOutput = ``;
 let counter = 0;
-let maxCount = 100;
 let mainOutput = ``;
 let modalData = []
 let modalOutput = ``;
@@ -17,7 +16,7 @@ function addCategories(){
     for(counter;counter<filtersData.drinks.length;counter++){
       filtersOutput += `<option id="category-${counter}" value="${filtersData.drinks[counter].strCategory}">${filtersData.drinks[counter].strCategory}</option>`;
     }
-    document.getElementById("dropdown").innerHTML += filtersOutput;
+    document.getElementById("category-select").innerHTML += filtersOutput;
     counter = 0;
     filtersData = [];
     filtersOutput = ``;
@@ -31,14 +30,11 @@ function addIngredients(){
   .then(data =>{
     filtersData = data;
     for(counter;counter<30;counter++){
-      filtersOutput += `
-      <div id="ingredient-${counter}" name="ingredient" class="item col-12 col- col-sm-6 col-md-4" col-lg-3>
-        <input type="checkbox" value="${filtersData.drinks[counter].strCategory}">
-        <label for="${filtersData.drinks[counter].strCategory}">${filtersData.drinks[counter].strIngredient1}</label>
-      </div>  
+      filtersOutput += `<option id="ingredient-${counter}" value="${filtersData.drinks[counter].strIngredient1}">
+      ${filtersData.drinks[counter].strIngredient1}</option>
       `;
     }
-    document.getElementById("form-check").innerHTML += filtersOutput;
+    document.getElementById("ingredient-select").innerHTML += filtersOutput;
     counter = 0;
     filtersData = [];
     filtersOutput = ``;
@@ -119,6 +115,6 @@ function listModal(modalId){
   })
 }
 document.getElementById("name-search-button").addEventListener("click",function(){fetchData("search","s","search-box")});
-document.getElementById("category-search-button").addEventListener("click",function(){fetchData("filter","c","dropdown")});
-document.getElementById("ingredient-search-button").addEventListener("click",function(){fetchData("filter","i","form-check"/*need to pick checked checkbox*/)});
+document.getElementById("category-search-button").addEventListener("click",function(){fetchData("filter","c","category-select")});
+document.getElementById("ingredient-search-button").addEventListener("click",function(){fetchData("filter","i","ingredient-select"/*need to pick checked checkbox*/)});
 

@@ -66,7 +66,7 @@ function loadDrinks(){
         </div>
       </div>`
         topRatedIngredients = ``;
-        topRatedCounter = 1
+        topRatedCounter = 1;
     }
     drinkDeck +=`<div id="deck${divCounter}" class="card-deck">`+ topRatedOutput + `</div>`
     document.getElementById("topRated").innerHTML += drinkDeck;
