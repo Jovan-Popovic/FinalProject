@@ -23,7 +23,7 @@ getTopRatedData();
 function loadDrinks(){
     for(loadMoreCounter;loadMoreCounter<cardCounter;loadMoreCounter++){
       topRatedOutput += `
-      <div id="card${loadMoreCounter}" class="card">
+      <div id="card${loadMoreCounter}" class="card col-12 col-sm-6 col-md-6 col-lg-4">
         <img src="${topRatedData.drinks[loadMoreCounter].strDrinkThumb}" class="card-img-top" alt="...">
         <div id="card-body${loadMoreCounter}" class="card-body">
           <h5 class="card-title">${topRatedData.drinks[loadMoreCounter].strDrink}</h5>
@@ -68,10 +68,9 @@ function loadDrinks(){
         topRatedIngredients = ``;
         topRatedCounter = 1;
     }
-    drinkDeck +=`<div id="deck${divCounter}" class="card-deck">`+ topRatedOutput + `</div>`
+    drinkDeck += topRatedOutput;
     document.getElementById("topRated").innerHTML += drinkDeck;
     topRatedOutput = ``;
     drinkDeck = ``;
     cardCounter += 3;
-    divCounter += 1;
 };

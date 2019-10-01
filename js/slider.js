@@ -52,25 +52,25 @@ function loadSliderDrinks(){
                   <h4 class="modal-title">Glass</h5>
                   <p class="modal-text">${sliderData.drinks[sliderLoadCounter].strGlass}</p>
                   <h4 class="modal-title">Ingredients</h4>`
-                  for(sliderModalCounter;sliderModalCounter<16;sliderModalCounter++){
-                    if(sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter] !== "" 
-                    && sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter] !== null
-                    && sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter] !== "" 
-                    && sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter] !== null){
-                       sliderIngredients += `<p class="modal-text">${sliderModalCounter}. ${sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter]} ${sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter]}</p>`;
-                       }
-                  }
-                  modalSliderOutput += sliderIngredients + 
-           `<h4 class="modal-title">Instructions</h4>
-            <p class="modal-text">${sliderData.drinks[sliderLoadCounter].strInstructions}</p>
+          for(sliderModalCounter;sliderModalCounter<16;sliderModalCounter++){
+            if(sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter] !== "" 
+            && sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter] !== null
+            && sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter] !== "" 
+            && sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter] !== null){
+               sliderIngredients += `<p class="modal-text">${sliderModalCounter}. ${sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter]} ${sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter]}</p>`;
+               }
+          }
+          modalSliderOutput += sliderIngredients + 
+                 `<h4 class="modal-title">Instructions</h4>
+                  <p class="modal-text">${sliderData.drinks[sliderLoadCounter].strInstructions}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
+          `;
     sliderIngredients = ``;
     sliderModalCounter = 1;
   }

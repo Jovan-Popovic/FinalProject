@@ -116,5 +116,5 @@ function listModal(modalId){
 }
 document.getElementById("name-search-button").addEventListener("click",function(){fetchData("search","s","search-box")});
 document.getElementById("category-search-button").addEventListener("click",function(){fetchData("filter","c","category-select")});
-document.getElementById("ingredient-search-button").addEventListener("click",function(){fetchData("filter","i","ingredient-select"/*need to pick checked checkbox*/)});
+document.getElementById("ingredient-search-button").addEventListener("click",function(){fetchData("filter","i","ingredient-select")});
 

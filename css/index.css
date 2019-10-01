@@ -14,6 +14,7 @@ nav{
 .best-titles,span{
     font-weight: bold;
 }
+
 #slider-best{
     display: flex;
     justify-content: space-around;
@@ -23,6 +24,16 @@ nav{
     margin-top: 10vh;
     margin-bottom: 5vh;
     width: 70%;
+}
+
+#tab-filters,#about-us,#filter-results,#gallery{
+    margin-bottom: 10vh;
+}
+
+.main,#gallery{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
 }
 
 #footer,.button{
@@ -39,7 +50,7 @@ nav{
     #item1,#item4,#item7{
         display: none;
     }
-    #about-us,#gallery{
+    #filter-results,#gallery{
         margin-bottom: 30vh;
     }
 }
@@ -60,24 +71,17 @@ nav{
     display: flex;
 }
 
-.main,#gallery{
-    display: flex;
-    justify-content: center;
-    margin-top: 10vh;
-}
-
 #filters,#about-us{
     margin-top: 10vh;
 }
 
-@media screen and (max-width: 210px){
+@media screen and (max-width: 286px){
     #filters{
         margin-top: 15vh;
     }
-}
-
-#tab-filters,#about-us,#filter-results,#gallery{
-    margin-bottom: 10vh;
+    #slider,#about-us,#filter-results,#gallery{
+        margin-top: 15vh;
+    }
 }
 
 .random-drink{
