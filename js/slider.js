@@ -27,7 +27,7 @@ getSliderData();
 function loadSliderDrinks(){
   for(sliderLoadCounter;sliderLoadCounter<sliderCounter;sliderLoadCounter++){
     sliderOutput += `
-      <div id="item${sliderLoadCounter}" class="item col-12 col-sm-6 col-md-4 col-lg-4" data-interval="3000">
+      <div id="item${sliderLoadCounter}" class="item col-12 col-sm-6 col-md-4 col-lg-4">
         <img src="${sliderData.drinks[sliderLoadCounter].strDrinkThumb}" class="d-block w-100" alt="...">
         <div class="carousel-caption d-md-block">
           <h5>${sliderData.drinks[sliderLoadCounter].strDrink}</h5>

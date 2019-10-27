@@ -1,2 +1,2 @@
-#FinalProject
-This is a cocktail app
+# Home Bartender
+This is a cocktail app.
