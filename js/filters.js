@@ -51,14 +51,16 @@ function fetchData(srcOrFil,tabName,filterId){
     filtersData = data;
     for(counter;counter<filtersData.drinks.length;counter++){
       filtersOutput += `
-      <div class="card col-12 col-sm-6 col-md-6 col-lg-4">
-        <img src="${filtersData.drinks[counter].strDrinkThumb}" class="card-img-top" alt="...">
-        <div id="card-body${counter}" class="card-body">
-        <h5 class="card-title">${filtersData.drinks[counter].strDrink}</h5>
-        <button id="modal-button${filtersData.drinks[counter].idDrink}" type="button" class="btn btn-warning" data-toggle="modal" data-target="#listModal${filtersData.drinks[counter].idDrink}">Read More</button>
-        <div class="modal fade" id="listModal${filtersData.drinks[counter].idDrink}" tabindex="-1" role="dialog" aria-labelledby="listModalScrollableTitle${counter}" aria-hidden="true"></div>
+      <div id="card${counter}" class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card">
+          <img src="${filtersData.drinks[counter].strDrinkThumb}" class="card-img-top" alt="...">
+          <div id="card-body${counter}" class="card-body">
+            <h5 class="card-title">${filtersData.drinks[counter].strDrink}</h5>
+            <button id="modal-button${filtersData.drinks[counter].idDrink}" type="button" class="btn btn-warning" data-toggle="modal" data-target="#listModal${filtersData.drinks[counter].idDrink}">Read More</button>
+            <div class="modal fade" id="listModal${filtersData.drinks[counter].idDrink}" tabindex="-1" role="dialog" aria-labelledby="listModalScrollableTitle${counter}" aria-hidden="true"></div>
+          </div>
         </div>
-      </div>`;
+      </div> `;
       document.getElementById("filter-results").innerHTML += filtersOutput;
       filtersOutput = ``;
       document.getElementById(`modal-button${filtersData.drinks[counter].idDrink}`).addEventListener("click",listModal(`${filtersData.drinks[counter].idDrink}`));

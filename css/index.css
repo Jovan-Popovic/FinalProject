@@ -8,7 +8,7 @@ body{
     overflow-x: hidden;
 }
 nav{
-    background-color: #0f0f0f;
+    background-color: #160F29;
 }
 
 .best-titles,span{
@@ -21,13 +21,21 @@ nav{
 }
 
 #slider{
-    margin-top: 10vh;
+    margin-top: 56px;
     margin-bottom: 5vh;
     width: 70%;
 }
 
-#tab-filters,#about-us,#filter-results,#gallery{
-    margin-bottom: 10vh;
+.card{
+    margin: 10px;
+}
+
+.card-text{
+    height: 150px;
+}
+
+#about-us,#filter-results{
+    margin-bottom: 100px;
 }
 
 .main,#gallery{
@@ -39,6 +47,8 @@ nav{
 #footer,.button{
     display: flex;
     justify-content: space-around;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .card-column{
@@ -46,13 +56,16 @@ nav{
     margin-top: 10vh;
 }
 
-@media screen and (max-width: 576px){
-    #item1,#item4,#item7{
-        display: none;
-    }
-    #filter-results,#gallery{
-        margin-bottom: 30vh;
-    }
+#filters,#about-us{
+    margin-top: 10vh;
+}
+
+.random-drink{
+    margin-bottom: 4vh;
+}
+
+.navbar-brand,.text-center,.page-description,.title,.content{
+    font-weight: bold;
 }
 
 @media screen and (max-width: 991px){
@@ -62,32 +75,25 @@ nav{
     #slider{
         width: 100%;
     }
+}
+
+@media screen and (max-width: 768px){
     #item2,#item5,#item8{
         display: none;
     }  
 }
 
-.slider-best{
-    display: flex;
-}
-
-#filters,#about-us{
-    margin-top: 10vh;
-}
-
-@media screen and (max-width: 286px){
-    #filters{
-        margin-top: 15vh;
+@media screen and (max-width: 576px){
+    #item1,#item4,#item7{
+        display: none;
     }
-    #slider,#about-us,#filter-results,#gallery{
-        margin-top: 15vh;
+    .card-text{
+        height: auto;
     }
 }
 
-.random-drink{
-    margin-bottom: 4vh;
-}
-
-.navbar-brand,.text-center,.page-description,.title,.content{
-    font-weight: bold;
+@media screen and (max-width: 268px){
+    #slider,#filters,#about-us,#gallery{
+        margin-top: 96px;
+    }
 }
