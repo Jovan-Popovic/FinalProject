@@ -35,10 +35,10 @@ nav{
     margin-bottom: 100px;
 }
 
-.main,#gallery{
+#gallery{
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 56px;
 }
 
 #footer,.button{
@@ -54,7 +54,7 @@ nav{
 }
 
 #filters,#about-us{
-    margin-top: 10vh;
+    margin-top: 59px;
 }
 
 .random-drink{
@@ -90,7 +90,10 @@ nav{
 }
 
 @media screen and (max-width: 268px){
-    #slider,#filters,#about-us,#gallery{
+    #slider{
         margin-top: 96px;
+    }
+    #filters,#about-us,#gallery{
+        margin-top: 99px;
     }
 }
