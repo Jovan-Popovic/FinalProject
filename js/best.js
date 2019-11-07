@@ -8,8 +8,8 @@ function getBest() {
       .then(res => res.json())
       .then(data => {
         bestData = data;
-            bestOutput += `
-            <div class="best-drinks">
+          bestOutput += `
+          <div class="best-drinks">
             <div class="row no-gutters">
               <div class="col-md-6">
                 <img src="${bestData.drinks[0].strDrinkThumb}" class="card-img" alt="...">
@@ -22,9 +22,9 @@ function getBest() {
               </div>
             </div>
           </div>
-            `;
-        document.getElementById("best").innerHTML = bestOutput;  
-        });
-      }
+          `;
+      document.getElementById("best").innerHTML = bestOutput;  
+      });
     }
+  }
 getBest();

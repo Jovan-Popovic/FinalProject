@@ -18,9 +18,9 @@ nav{
 }
 
 #slider{
-    margin-top: 56px;
+    margin-top: 60px;
     margin-bottom: 5vh;
-    width: 70%;
+    width: 75%;
 }
 
 .card{
@@ -50,7 +50,7 @@ nav{
 
 .card-column{
     max-width: 20%;
-    margin-top: 10vh;
+    margin-top: 60px;
 }
 
 #filters,#about-us{
@@ -90,10 +90,7 @@ nav{
 }
 
 @media screen and (max-width: 268px){
-    #slider{
-        margin-top: 96px;
-    }
-    #filters,#about-us,#gallery{
-        margin-top: 99px;
+    #filters,#about-us,#gallery,#slider{
+        margin-top: 100px;
     }
 }
