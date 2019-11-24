@@ -1,22 +1,21 @@
 
-let sliderData = [];
-let sliderOutput = '';
-let modalSliderOutput = '';
-let sliderCounter = 3;
+//Declare all variables
+let sliderData = new Array();//Array for storing data from api
+let sliderOutput = new String();
+let elementCounter = 3;
 let sliderLoadCounter = 0;
-let addSliderData = 1;
-let sliderModalCounter = 1;
-let sliderIngredients = ``;
+let sliderCounter = 1;
+let modalOutput = new String();
 
+//Function for showing api data on the page
 function getSliderData() {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=o")
     .then(res => res.json())
     .then(data => {
       sliderData = data;
-      for(addSliderData;addSliderData<4;addSliderData++){
+      for(sliderCounter; sliderCounter < 4; sliderCounter++){
         loadSliderDrinks();
-        document.getElementById(`slide${addSliderData}`).innerHTML = sliderOutput;
-        document.getElementById('slider-best').innerHTML += modalSliderOutput;
+        document.getElementById(`slide${sliderCounter}`).innerHTML = sliderOutput + modalOutput;
         sliderOutput = '';
         modalSliderData = '';
       }        
@@ -24,8 +23,12 @@ function getSliderData() {
 };
 getSliderData();
 
+//Function for load drinks,which will be called inside getSliderData function
 function loadSliderDrinks(){
-  for(sliderLoadCounter;sliderLoadCounter<sliderCounter;sliderLoadCounter++){
+  modalOutput = new String();
+  for(sliderLoadCounter; sliderLoadCounter < elementCounter; sliderLoadCounter++){
+    let sliderModalCounter = 1;
+    let sliderIngredients = new String();
     sliderOutput += `
       <div id="item${sliderLoadCounter}" class="item col-12 col-sm-6 col-md-4 col-lg-4">
         <img src="${sliderData.drinks[sliderLoadCounter].strDrinkThumb}" class="d-block w-100" alt="...">
@@ -35,7 +38,7 @@ function loadSliderDrinks(){
         </div>
       </div>
           `;
-    modalSliderOutput +=`
+    modalOutput +=`
       <div class="modal fade" id="sliderModal${sliderLoadCounter}" tabindex="-1" role="dialog" aria-labelledby="sliderModalScrollableTitle${sliderLoadCounter}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
@@ -52,15 +55,15 @@ function loadSliderDrinks(){
                   <h4 class="modal-title">Glass</h5>
                   <p class="modal-text">${sliderData.drinks[sliderLoadCounter].strGlass}</p>
                   <h4 class="modal-title">Ingredients</h4>`
-          for(sliderModalCounter;sliderModalCounter<16;sliderModalCounter++){
+          for(sliderModalCounter; sliderModalCounter < 16; sliderModalCounter++){
             if(sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter] !== "" 
             && sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter] !== null
             && sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter] !== "" 
             && sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter] !== null){
                sliderIngredients += `<p class="modal-text">${sliderModalCounter}. ${sliderData.drinks[sliderLoadCounter]["strIngredient" + sliderModalCounter]} ${sliderData.drinks[sliderLoadCounter]["strMeasure" + sliderModalCounter]}</p>`;
-               }
+            }
           }
-          modalSliderOutput += sliderIngredients + 
+          modalOutput += sliderIngredients + 
                  `<h4 class="modal-title">Instructions</h4>
                   <p class="modal-text">${sliderData.drinks[sliderLoadCounter].strInstructions}</p>
                   </div>
@@ -71,8 +74,6 @@ function loadSliderDrinks(){
               </div>
             </div>
           `;
-    sliderIngredients = ``;
-    sliderModalCounter = 1;
   }
-  sliderCounter += 3;
+  elementCounter += 3;
 }

@@ -1,13 +1,23 @@
+//Declare all html elements
+const nameBtn = document.getElementById("name-search-button");
+const categoryBtn = document.getElementById("category-search-button");
+const ingredientBtn = document.getElementById("ingredient-search-button");
+const categorySelect = document.getElementById("category-select");
+const ingredentSelect = document.getElementById("ingredient-select");
+const filterResults = document.getElementById("filter-results");
 
-let filtersData = [];
-let filtersOutput = ``;
+//Declare all other variables
+let filtersData = new Array();
+let filtersOutput = new String();
 let counter = 0;
-let mainOutput = ``;
-let modalData = []
-let modalOutput = ``;
-let ingredientsCounter = 1;
-let modalIngredients = ``;
+let modalData = new Array();
 
+//Add aevent listeners for all search buttons
+nameBtn.addEventListener("click",function(){fetchData("search", "s", "search-box")});
+categoryBtn.addEventListener("click",function(){fetchData("filter", "c", "category-select")});
+ingredientBtn.addEventListener("click",function(){fetchData("filter", "i", "ingredient-select")});
+
+//Load all categories in category select element
 function addCategories(){
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list`)
   .then(res => res.json())
@@ -16,7 +26,7 @@ function addCategories(){
     for(counter;counter<filtersData.drinks.length;counter++){
       filtersOutput += `<option id="category-${counter}" value="${filtersData.drinks[counter].strCategory}">${filtersData.drinks[counter].strCategory}</option>`;
     }
-    document.getElementById("category-select").innerHTML += filtersOutput;
+    categorySelect.innerHTML += filtersOutput;
     counter = 0;
     filtersData = [];
     filtersOutput = ``;
@@ -24,17 +34,18 @@ function addCategories(){
 }
 addCategories();
 
+//Load all ingredients in ingredient select element
 function addIngredients(){
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`)
   .then(res => res.json())
   .then(data =>{
     filtersData = data;
-    for(counter;counter<30;counter++){
+    for(counter; counter < 30; counter++){
       filtersOutput += `<option id="ingredient-${counter}" value="${filtersData.drinks[counter].strIngredient1}">
       ${filtersData.drinks[counter].strIngredient1}</option>
       `;
     }
-    document.getElementById("ingredient-select").innerHTML += filtersOutput;
+    ingredentSelect.innerHTML += filtersOutput;
     counter = 0;
     filtersData = [];
     filtersOutput = ``;
@@ -42,14 +53,15 @@ function addIngredients(){
 }
 addIngredients();
 
-function fetchData(srcOrFil,tabName,filterId){
-  document.getElementById("filter-results").innerHTML = ``;
+//Callback function for loading data (depending on whish filter is chosen)
+function fetchData(srcOrFil, tabName, filterId){
+  filterResults.innerHTML = ``;
   inputValue = document.getElementById(filterId).value
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/${srcOrFil}.php?${tabName}=${inputValue}`)
   .then(res => res.json())
   .then(data => {
     filtersData = data;
-    for(counter;counter<filtersData.drinks.length;counter++){
+    for(counter; counter < filtersData.drinks.length; counter++){
       filtersOutput += `
       <div id="card${counter}" class="col-12 col-sm-6 col-md-4 col-lg-4">
         <div class="card">
@@ -61,7 +73,7 @@ function fetchData(srcOrFil,tabName,filterId){
           </div>
         </div>
       </div> `;
-      document.getElementById("filter-results").innerHTML += filtersOutput;
+      filterResults.innerHTML += filtersOutput;
       filtersOutput = ``;
       document.getElementById(`modal-button${filtersData.drinks[counter].idDrink}`).addEventListener("click",listModal(`${filtersData.drinks[counter].idDrink}`));
     }
@@ -72,6 +84,9 @@ function fetchData(srcOrFil,tabName,filterId){
 }
 
 function listModal(modalId){
+  let modalOutput = new String();
+  let modalIngredients = new String();
+  let ingredientsCounter = 1;
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${modalId}`)
   .then(res => res.json())
   .then(data => {
@@ -111,12 +126,5 @@ function listModal(modalId){
     </div>
   </div>`;
   document.getElementById(`listModal${modalData.drinks[counter].idDrink}`).innerHTML += modalOutput;
-  ingredientsCounter = 1;
-  modalOutput = ``;
-  modalIngredients = ``;
   })
 }
-document.getElementById("name-search-button").addEventListener("click",function(){fetchData("search","s","search-box")});
-document.getElementById("category-search-button").addEventListener("click",function(){fetchData("filter","c","category-select")});
-document.getElementById("ingredient-search-button").addEventListener("click",function(){fetchData("filter","i","ingredient-select")});
-

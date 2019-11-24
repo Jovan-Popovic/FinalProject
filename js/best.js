@@ -1,14 +1,13 @@
+let bestData = [];//Array for storing data from json
 
-let bestData = [];
-let bestOutput = '';
-let bestCounter = 1;
 function getBest() {
-  for(bestCounter;bestCounter<3;bestCounter++){
+  for(let counter = 0; counter < 2; counter++){
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       .then(res => res.json())
       .then(data => {
+        let output = new String();
         bestData = data;
-          bestOutput += `
+        output += `
           <div class="best-drinks">
             <div class="row no-gutters">
               <div class="col-md-6">
@@ -23,8 +22,8 @@ function getBest() {
             </div>
           </div>
           `;
-      document.getElementById("best").innerHTML = bestOutput;  
+      document.getElementById("best").innerHTML += output;  
       });
     }
-  }
+}
 getBest();
